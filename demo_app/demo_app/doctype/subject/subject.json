@@ -1,0 +1,39 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-14 12:07:24.099964",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "subject_name",
+  "mark"
+ ],
+ "fields": [
+  {
+   "fieldname": "subject_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Subject Name"
+  },
+  {
+   "fieldname": "mark",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Mark"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-10-07 10:56:03.253568",
+ "modified_by": "Administrator",
+ "module": "Demo App",
+ "name": "Subject",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

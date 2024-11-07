@@ -10,32 +10,41 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/demo_app/css/demo_app.css"
-# app_include_js = "/assets/demo_app/js/demo_app.js"
+app_include_css = "/assets/demo_app/assets/css/demo_app.css"
+app_include_js = [ "/assets/demo_app/js/demo_app.js" , "/assets/demo_app/assets/js/demo_app.js"]
 
 # include js, css files in header of web template
-# web_include_css = "/assets/demo_app/css/demo_app.css"
-# web_include_js = "/assets/demo_app/js/demo_app.js"
+web_include_css = "/assets/demo_app/css/app-web.css"
+web_include_js = "/assets/demo_app/js/app-web.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "demo_app/public/scss/website"
 
 # include js, css files in header of web form
-# webform_include_js = {"doctype": "public/js/doctype.js"}
-# webform_include_css = {"doctype": "public/css/doctype.css"}
+# dout!!!!
+# webform_include_js = {"Programming Web-Form": "public/js/web-form.js"}
+# webform_include_css = {"Programming Web-Form ": "public/css/web-form.css"}
 
 # include js in page
-# page_js = {"page" : "public/js/file.js"}
+page_js = {"programming-page" : "public/js/page.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
-# doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
+doctype_js = {
+			# "doctype" : "public/js/doctype.js",
+			"Customer" : "public/js/customer.js",
+			# "ToDo": "public/js/todo.js"
+}
+# doctype_list_js = {
+# 	"Dixit" : "public/js/student_list.js"
+# }
+
+doctype_tree_js = {"Student" : "public/js/student_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
 # Svg Icons
 # ------------------
 # include app icons in desk
+# dout!!!!!!!!
 # app_include_icons = "demo_app/public/icons.svg"
 
 # Home Pages
@@ -46,23 +55,23 @@ app_license = "mit"
 
 # website user home page (by Role)
 # role_home_page = {
-# 	"Role": "home_page"
+# 	"Administrator": "index"
 # }
 
 # Generators
 # ----------
 
 # automatically create page for each record of this doctype
-# website_generators = ["Web Page"]
+# website_generators = ["Student"]
 
 # Jinja
 # ----------
 
 # add methods and filters to jinja environment
-# jinja = {
-# 	"methods": "demo_app.utils.jinja_methods",
-# 	"filters": "demo_app.utils.jinja_filters"
-# }
+jinja = {
+	"methods": "demo_app.utils.greet",
+	"filters": "demo_app.utils.capitalize_all"
+}
 
 # Installation
 # ------------
@@ -96,6 +105,7 @@ app_license = "mit"
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
+# dout!!!!!!!
 # notification_config = "demo_app.notifications.get_notification_config"
 
 # Permissions
@@ -114,42 +124,78 @@ app_license = "mit"
 # ---------------
 # Override standard doctype classes
 
-# override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
-# }
+override_doctype_class = {
+	# "ToDo": "demo_app.event.OverrideToDo",
+	"Student": "demo_app.event.OverrideStudent",
+	# "Customer": "demo_app.customer.customCustomer",
+	"Purchase Order": "demo_app.event.OverridePurchaseOrder",
+	
+}
 
 # Document Events
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	# "*": {
+	# 	"on_update": "method",
+	# 	"on_cancel": "method",
+	# 	"on_trash": "method"
+	# }
+
+	'Student':{
+		"validate":"demo_app.demo_app.doctype.student.events.validate",
+		# "on_update":"erpnext.my_module.doctype.server_side_scripting.events.on_update",
+		"before_submit":"demo_app.demo_app.doctype.student.events.before_submit",
+	},
+	'Customer':{
+		"on_update":"demo_app.customer.on_update"
+	},
+	'ToDo':{
+		# "validate":"demo_app.todo.validates",
+		# "on_update":"demo_app.todo.on_update",
+		# "before_save":"demo_app.todo.before_save",
+		# "before_insert":"demo_app.todo.before_insert",
+		# "after_insert":"demo_app.todo.after_insert",
+		# "on_trash":"demo_app.todo.on_trash",
+		# "after_delete":"demo_app.todo.after_delete"
+
+	},
+	'Server Side Scripting':{
+		"before_save":"demo_app.customer.before_save"
+	},
+
+	'Sales Order':{
+		"before_save":"demo_app.sales_order.before_save"
+	}
+}
 
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"demo_app.tasks.all"
-# 	],
-# 	"daily": [
-# 		"demo_app.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"demo_app.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"demo_app.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"demo_app.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	# "cron": {
+    #     "* * * * *":[
+    #         # "demo_app.tasks.cron",
+	# 		# "erpnext.tasks.enqueue_job"
+    #     ],
+	# }
+	# "all": [
+    #     "demo_app.tasks.cron"
+    # ],
+	# "daily": [
+	# 	"demo_app.tasks.daily"
+	# ],
+	# "hourly": [
+	# 	"demo_app.tasks.hourly"
+	# ],
+	# "weekly": [
+	# 	"demo_app.tasks.weekly"
+	# ],
+	# "monthly": [
+	# 	"demo_app.tasks.monthly"
+	# ],
+}
 
 # Testing
 # -------
@@ -159,25 +205,33 @@ app_license = "mit"
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "demo_app.event.get_events"
-# }
+override_whitelisted_methods = {
+	# "frappe.desk.doctype.todo.todo.new_todo": "demo_app.todo.OverrideNew_todo",
+	# "frappe.desk.doctype.event.event.get_events": "demo_app.event.get_events",
+	"erpnext.my_module.doctype.client_side_scripting.client_side_scripting.frappe_call" : "demo_app.event.Myfrappe_call",
+	"erpnext.accounts.doctype.sales_invoice.sales_invoice.make_delivery_note" : "demo_app.whitelist_override.make_delivery_note",
+	
+}
 #
+
+
+
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
-# override_doctype_dashboards = {
-# 	"Task": "demo_app.task.get_dashboard_data"
-# }
+override_doctype_dashboards = {
+	"Task": "demo_app.tasks.get_dashboard_data"
+}
 
 # exempt linked doctypes from being automatically cancelled
 #
-# auto_cancel_exempted_doctypes = ["Auto Repeat"]
+# auto_cancel_exempted_doctypes = ["Grade"]
 
 # Ignore links to specified DocTypes when deleting documents
 # -----------------------------------------------------------
 
-# ignore_links_on_delete = ["Communication", "ToDo"]
+# ignore_links_on_delete = ["Student"]
+
 
 # Request Events
 # ----------------
@@ -186,7 +240,7 @@ app_license = "mit"
 
 # Job Events
 # ----------
-# before_job = ["demo_app.utils.before_job"]
+before_job = ["demo_app.utils.before_job"]
 # after_job = ["demo_app.utils.after_job"]
 
 # User Data Protection
@@ -212,6 +266,19 @@ app_license = "mit"
 # 		"doctype": "{doctype_4}"
 # 	}
 # ]
+user_data_fields = [
+    {
+        "doctype": "Student",
+        "filter_by": "name",  # Field used to identify the student (e.g., user ID or email)
+        "redact_fields": ["date_of_birth", "status"],  # Fields with sensitive data to redact
+        "partial": 1,  # Partially redact the data, not a full deletion
+    },
+    # {
+    #     "doctype": "Grade",
+    #     "filter_by": "student_id",  # Field in `Grade` DocType to identify records linked to the student
+    #     "partial": 1  # Partial redaction for records in the `Grade` DocType
+    # }
+]
 
 # Authentication and authorization
 # --------------------------------
@@ -227,3 +294,8 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+
+from erpnext.setup.doctype.employee import employee
+from demo_app.custom_method import custom_get_employee_email
+
+employee.get_employee_email = custom_get_employee_email

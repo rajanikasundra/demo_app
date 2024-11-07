@@ -1,0 +1,28 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-10-17 12:51:48.141581",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "Test Letter Head",
+ "letterhead": null,
+ "modified": "2024-10-17 14:23:13.991948",
+ "modified_by": "Administrator",
+ "module": "Demo App",
+ "name": "Student Query Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT name as Id, name1 as Name, gender as Gender, grade as Grade, status as Status FROM `tabStudent`;",
+ "ref_doctype": "Student",
+ "report_name": "Student Query Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ]
+}

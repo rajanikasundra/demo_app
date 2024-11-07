@@ -1,0 +1,10 @@
+
+body {
+    background-color: skyblue;
+    font-family: "Open Sans", sans-serif;
+}
+
+.navbar {
+    background-color: pink;
+    color: white;
+}

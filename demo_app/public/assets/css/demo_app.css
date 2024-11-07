@@ -1,0 +1,10 @@
+/* app.min.css */
+body {
+    background-color: blue;
+  }
+  
+
+  .navbar {
+    background-color: #0056b3;
+    color: white !important;
+}
