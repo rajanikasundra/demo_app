@@ -1,0 +1,53 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-09 12:42:18.288039",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "log_message",
+  "column_break_nnkt",
+  "timestamp"
+ ],
+ "fields": [
+  {
+   "fieldname": "log_message",
+   "fieldtype": "Text",
+   "label": "Log Message"
+  },
+  {
+   "fieldname": "column_break_nnkt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "timestamp",
+   "fieldtype": "Datetime",
+   "label": "Timestamp"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-09 14:56:56.126304",
+ "modified_by": "Administrator",
+ "module": "Demo App",
+ "name": "System Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

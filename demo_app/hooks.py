@@ -10,12 +10,12 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-app_include_css = "/assets/demo_app/assets/css/demo_app.css"
-app_include_js = [ "/assets/demo_app/js/demo_app.js" , "/assets/demo_app/assets/js/demo_app.js"]
+# app_include_css = "/assets/demo_app/assets/css/demo_app.css"
+# app_include_js = [ "/assets/demo_app/js/demo_app.js" , "/assets/demo_app/assets/js/demo_app.js"]
 
 # include js, css files in header of web template
-web_include_css = "/assets/demo_app/css/app-web.css"
-web_include_js = "/assets/demo_app/js/app-web.js"
+# web_include_css = "/assets/demo_app/css/app-web.css"
+# web_include_js = "/assets/demo_app/js/app-web.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "demo_app/public/scss/website"
@@ -26,7 +26,7 @@ web_include_js = "/assets/demo_app/js/app-web.js"
 # webform_include_css = {"Programming Web-Form ": "public/css/web-form.css"}
 
 # include js in page
-page_js = {"programming-page" : "public/js/page.js"}
+# page_js = {"programming-page" : "public/js/page.js"}
 
 # include js in doctype views
 doctype_js = {
@@ -149,16 +149,16 @@ doc_events = {
 		"before_submit":"demo_app.demo_app.doctype.student.events.before_submit",
 	},
 	'Customer':{
-		"on_update":"demo_app.customer.on_update"
+		"on_update":"demo_app.customer.on_update",
 	},
 	'ToDo':{
-		# "validate":"demo_app.todo.validates",
-		# "on_update":"demo_app.todo.on_update",
-		# "before_save":"demo_app.todo.before_save",
-		# "before_insert":"demo_app.todo.before_insert",
-		# "after_insert":"demo_app.todo.after_insert",
-		# "on_trash":"demo_app.todo.on_trash",
-		# "after_delete":"demo_app.todo.after_delete"
+		"validate":"demo_app.todo.validates",
+		"on_update":"demo_app.todo.on_update",
+		"before_save":"demo_app.todo.before_save",
+		"before_insert":"demo_app.todo.before_insert",
+		"after_insert":"demo_app.todo.after_insert",
+		"on_trash":"demo_app.todo.on_trash",
+		"after_delete":"demo_app.todo.after_delete"
 
 	},
 	'Server Side Scripting':{
@@ -167,7 +167,12 @@ doc_events = {
 
 	'Sales Order':{
 		"before_save":"demo_app.sales_order.before_save"
-	}
+	},
+ 
+	# 'Sales Invoice':{
+	# 	'before_submit':"demo_app.sales_invoice.before_submit"
+	# }
+ 
 }
 
 # Scheduled Tasks
@@ -183,9 +188,9 @@ scheduler_events = {
 	# "all": [
     #     "demo_app.tasks.cron"
     # ],
-	# "daily": [
-	# 	"demo_app.tasks.daily"
-	# ],
+	"daily": [
+		"demo_app.tasks.daily"
+	],
 	# "hourly": [
 	# 	"demo_app.tasks.hourly"
 	# ],

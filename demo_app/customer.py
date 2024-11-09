@@ -49,4 +49,21 @@ def before_save(doc,event):
     
         
         
-	
+@frappe.whitelist()	
+def get_outstanding_amount(customer):
+
+    print("++++++++++++++==")
+    all_cust = frappe.db.get_list('Sales Invoice',
+                                    fields = ['customer', 'outstanding_amount'],
+                                    filters={'customer':['like',customer]}, 
+                                    )
+    total_outstanding_amount = 0
+    for name in all_cust:
+        if name.outstanding_amount > 0:
+            total_outstanding_amount += name.outstanding_amount
+        
+            # print(f"{name.customer}::{name.outstanding_amount}\n\n")
+        
+    # frappe.msgprint(f"{total_outstanding_amount}") 
+    print("------",total_outstanding_amount)  
+    return total_outstanding_amount

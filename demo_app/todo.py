@@ -8,6 +8,7 @@ def validates(doc,event):
 def on_update(doc,event):
     # super().on_update()
     frappe.msgprint("i am on update")
+    print("i am on update")
 
 
 def before_save(doc,event):

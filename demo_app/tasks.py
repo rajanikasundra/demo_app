@@ -2,6 +2,7 @@ import frappe
 import string
 import random
 import time
+from datetime import datetime, timedelta
 
 # def cron():
 #     letter = string.ascii_letters
@@ -65,3 +66,15 @@ def get_dashboard_data(data):
     print("\n\n")
     print(data)
     return data
+
+
+
+def daily():
+    limit_date = datetime.today() - timedelta(days=1)
+
+    data = frappe.db.get_all("System Log", {"timestamp":('<',limit_date)},pluck="name")
+    print(f"\n\n\n\n{data}\n{limit_date}\n\n\n")
+
+    for item in data:
+        print(item)
+        frappe.db.delete("System Log",item)
