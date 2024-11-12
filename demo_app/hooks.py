@@ -128,7 +128,7 @@ override_doctype_class = {
 	# "ToDo": "demo_app.event.OverrideToDo",
 	"Student": "demo_app.event.OverrideStudent",
 	# "Customer": "demo_app.customer.customCustomer",
-	"Purchase Order": "demo_app.event.OverridePurchaseOrder",
+	# "Purchase Order": "demo_app.event.OverridePurchaseOrder",
 	
 }
 

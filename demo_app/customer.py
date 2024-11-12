@@ -1,10 +1,10 @@
 
 import frappe
 def on_update(doc,event):
-    print(f"\n{doc}\n{event}\n")
+    # print(f"\n{doc}\n{event}\n")
     customer_group = doc.customer_group
     data = frappe.db.get_list('Customer', filters={'customer_group': ['like', customer_group ]},pluck='name')
-    print(f"\n\n{data}\n\n")
+    # print(f"\n\n{data}\n\n")
     count = len(data)
 
     for name in data:

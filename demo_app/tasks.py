@@ -73,7 +73,7 @@ def daily():
     limit_date = datetime.today() - timedelta(days=1)
 
     data = frappe.db.get_all("System Log", {"timestamp":('<',limit_date)},pluck="name")
-    print(f"\n\n\n\n{data}\n{limit_date}\n\n\n")
+    # print(f"\n\n\n\n{data}\n{limit_date}\n\n\n")
 
     for item in data:
         print(item)

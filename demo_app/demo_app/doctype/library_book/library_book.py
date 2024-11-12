@@ -8,7 +8,7 @@ from datetime import datetime
 class LibraryBook(Document):
 	def validate(self):
 		self.check_isbnNo_unique()
-		self.past_publication_year()
+		past_publication_year(self)
   
 	def check_isbnNo_unique(self):
 		no = self.isbn_number
@@ -16,12 +16,12 @@ class LibraryBook(Document):
 		if exists_no :
 			frappe.throw("Enter unique <b>Isbn Number</b>")
   
-	def past_publication_year(self):
-		year = self.publication_year
-		current_year = datetime.now().year
-  
-		if year > current_year:
-			frappe.throw("Enter publication year less than current year")
+def past_publication_year(self):
+	year = self.publication_year
+	current_year = datetime.now().year
+
+	if year > current_year:
+		frappe.throw("Enter publication year less than current year")
 		
 
      

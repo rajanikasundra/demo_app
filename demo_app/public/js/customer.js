@@ -6,6 +6,9 @@ frappe.ui.form.on('Customer', {
         // console.log("\n\nCustom Customer logic loaded\n\n")  
         
         
+
+
+        
         frappe.call({
             method: "demo_app.customer.get_outstanding_amount",
             args: {
