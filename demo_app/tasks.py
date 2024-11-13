@@ -77,4 +77,5 @@ def daily():
 
     for item in data:
         print(item)
-        frappe.db.delete("System Log",item)
+        # frappe.db.delete("System Log",item)
+        frappe.delete_doc("System Log",item)
